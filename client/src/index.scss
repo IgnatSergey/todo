@@ -1,0 +1,29 @@
+@font-face {
+  font-family: "Astra";
+  src: url("./fonts/astra.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@mixin font-astra($size: 16px, $height: 18px, $weight: 400) {
+  font-family: "Astra", "Arial", sans;
+  font-size: $size;
+  line-height: $height;
+  font-weight: $weight;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  @include font-astra();
+  min-height: 100%;
+  box-sizing: border-box;
+  background-color: #e8edec;
+}
+
+@import "./app.scss";
