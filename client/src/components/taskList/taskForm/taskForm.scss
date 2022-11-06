@@ -1,0 +1,82 @@
+.task-form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.task-form-wrapper {
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10px 10px 0px 0px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.task-form-wrapper--update {
+  border-radius: 0;
+  border-top: none;
+}
+
+.task-form__input-wrapper {
+  margin-bottom: 15px;
+  margin-right: 15px;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.task-form__input-description-wrapper {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 0;
+}
+
+.task__form-input-description {
+  flex-grow: 1;
+  margin-left: 5px;
+  min-height: 40px;
+}
+
+.button-save-wrapper {
+    width: 100%;
+    text-align: end;
+}
+
+.button-save-task {
+  margin-left: auto;
+}
+
+.button-add-task {
+  min-height: 30px;
+  border-radius: 0px 0px 10px 10px;
+  border: 1px solid black;
+  border-top: none;
+  background-color: $button-add-task-color;
+  cursor: pointer;
+  &:hover {
+    background-color: darken($color: $button-add-task-color, $amount: 10);
+  }
+}
+
+.button-add-task-text {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 45%;
+    left: 0;
+    width: 17px;
+    height: 2px;
+    background-color: black;
+    border-radius: 2px;
+    transform: translate(-25px, 1px);
+  }
+
+  &::after {
+    transform: translate(-25px, 1px) rotate(-90deg);
+  }
+}
+

@@ -1,0 +1,26 @@
+.header {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+}
+
+.header__logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.header__logo-text {
+    margin: 0;
+    @include font-astra(45px, 22px, 400);
+    margin-right: 10px;
+
+}
+
+.header__logo-img {
+    width: 50px;
+}
+
+.header__loginOut {
+    @include font-astra(25px, 22px, 400);
+    margin-left: auto;
+}

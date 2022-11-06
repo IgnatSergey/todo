@@ -5,7 +5,7 @@ import jwt_decode from "jwt-decode";
 const INITIALIZED_SUCCSESS = 'INITIALIZED_SUCCSESS';
 
 let initialState = {
-    initialized: false
+    initialized: false,
 }
 
 const appReducer = (state = initialState, action) => {
@@ -25,16 +25,16 @@ export const initializedSuccess = () => {
 
 export const checkAuthThunkCreator = () => {
     return async (dispatch) => {
-        const response = await authAPI.check()
-        console.log(response)
-        if (response.data.errorCode === 0) {
+        try {
+            const response = await authAPI.check()
             const { token } = response.data;
             localStorage.setItem('token', token)
-            const { id, email } = jwt_decode(token);
-            console.log(jwt_decode(token))
-            dispatch(setMyProfileData(id, email, true))
+            const { id, email, login } = jwt_decode(token);
+            dispatch(setMyProfileData(id, email, login, true))
+            dispatch(initializedSuccess())
+        } catch (error) {
+                dispatch(initializedSuccess())
         }
-        dispatch(initializedSuccess())
     }
 }
 

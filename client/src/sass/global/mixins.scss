@@ -1,0 +1,6 @@
+@mixin font-astra($size: 16px, $height: 18px, $weight: 400) {
+    font-family: "Astra", "Arial", sans;
+    font-size: $size;
+    line-height: $height;
+    font-weight: $weight;
+  }

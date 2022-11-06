@@ -1,19 +1,20 @@
 const sequelize = require('../db');
-const { DataTypes } = require('sequelize')
+const { DataTypes } = require('sequelize');
 
 const User = sequelize.define('user', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-    email: { type: DataTypes.STRING, unique: true },
-    password: { type: DataTypes.STRING },
+    email: { type: DataTypes.STRING, unique: true, validate: { isEmail: true, notEmpty: true  } },
+    login: { type: DataTypes.STRING, unique: true, validate: { notEmpty: true, len: [2, 20] } },
+    password: { type: DataTypes.STRING, validate: { notEmpty: true } },
 }, {
     freezeTableName: true,
 })
 
 const Task = sequelize.define('task', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-    description: { type: DataTypes.STRING },
-    startDate: { type: DataTypes.DATE },
-    endDate: { type: DataTypes.DATE },
+    description: { type: DataTypes.STRING, validate: { notEmpty: true, len: [, 200] } },
+    startDate: { type: DataTypes.DATEONLY },
+    endDate: { type: DataTypes.DATEONLY },
 }, {
     freezeTableName: true,
 })

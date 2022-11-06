@@ -1,0 +1,10 @@
+.term-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 30px;
+}
+
+.term__tefenition {
+    margin-left: 10px;
+    @include font-astra(18px, 18px, 400);
+}

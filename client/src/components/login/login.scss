@@ -1,0 +1,43 @@
+.login {
+    width: 40%;
+}
+
+.login__header {
+    margin: 0;
+    margin-bottom: 30px;
+}
+
+.login__input-wrapper {
+    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.login__input-label {
+    margin-right: 10px;
+}
+
+.login__input {
+    flex-grow: 1;
+}
+
+.login__message-success {
+    color: $success-message-color
+}
+
+.login__type-toggle-wrapper {
+    display: flex;
+}
+
+.login__type-toggle {
+    text-decoration: underline;
+    cursor: pointer;
+    &:hover {
+        color:$input-border-hover-color;
+    }
+}
+
+.login__button {
+    margin-left: auto;
+}

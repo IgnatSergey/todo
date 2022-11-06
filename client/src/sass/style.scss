@@ -1,0 +1,15 @@
+//Global
+@import "./global/variables.scss";
+@import "./global/mixins.scss";
+@import "./global/global.scss";
+
+//Blocks
+@import "../app.scss";
+@import "../components/header/header.scss";
+@import "../components/login/login.scss";
+@import "../components/taskFilter/taskFilter.scss";
+@import "../components/taskList/taskList.scss";
+@import "../components/сommon/termDefenition/termDefenition.scss";
+@import "../components/сommon/preloader/preloader.scss";
+@import "../components/taskList/task/task.scss";
+@import "../components/taskList/taskForm/taskForm.scss";

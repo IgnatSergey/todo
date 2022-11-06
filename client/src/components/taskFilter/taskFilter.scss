@@ -1,0 +1,115 @@
+.task-filter__wrapper {
+  padding: 15px;
+  box-sizing: border-box;
+
+  @media (min-width: $tablet-width) {
+    height: 100%;
+  }
+}
+
+.task-filter {
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  @media (min-width: $tablet-width) {
+    display: block;
+    border-right: 3px solid $button-border-color;
+  }
+}
+
+.filter__input-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.filter__block-header {
+  @include font-astra(22px, 18px, 400);
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+.filter__input-label {
+  @include font-astra(18px, 18px, 400);
+  margin-right: 10px;
+}
+
+.filter__checkbox-label {
+  @include font-astra(18px, 18px, 400);
+  margin-right: 10px;
+  margin-left: 20px;
+  position: relative;
+
+  &:hover {
+    &::before {
+      border: 2px solid $input-border-hover-color;
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: -20px;
+    top: 2px;
+    width: 10px;
+    height: 10px;
+    border: 2px solid $button-border-color;
+    border-radius: 2px;
+  }
+}
+
+.filter__block {
+  margin-bottom: 20px;
+  width: 180px;
+}
+
+.filter__input-checkbox {
+  margin-right: 10px;
+
+  &:checked + .filter__checkbox-label::after {
+    content: "";
+    position: absolute;
+    left: -17px;
+    top: 5px;
+    width: 8px;
+    height: 8px;
+    background-color: $input-border-hover-color;
+  }
+}
+
+.checkbox {
+  width: 10px;
+  height: 10px;
+  border: 2px solid $button-border-color;
+  border-radius: 2px;
+  position: absolute;
+  &:hover {
+    border: 2px solid $input-border-hover-color;
+  }
+}
+
+.filter__input-date-wrapper {
+  display: flex;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.filter__block-sorting {
+  width: 100%;
+
+  @media (min-width: $tablet-width) {
+    display: block;
+    border-right: 3px solid $button-border-color;
+  }
+}
+
+.filter__sorting-select {
+  @include font-astra(16px, 14px, 400);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  border: 2px solid #bcc0c4;
+  &:hover {
+    border: 2px solid $input-border-hover-color;
+  }
+}

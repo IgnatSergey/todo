@@ -1,6 +1,5 @@
 import axios from 'axios';
 import jwt_decode from "jwt-decode";
-import { getTasks } from '../redux/task-selector';
 
 const host = axios.create({
     baseURL: process.env.REACT_APP_API_URL
@@ -18,19 +17,19 @@ const authInterceptor = (config) => {
 authHost.interceptors.request.use(authInterceptor)
 
 export const authAPI = {
-    registrate(email, password) {
-        return host.post('user/registration', { email, password }).then((response) => {
-            const { errorCode, token } = response.data;
+    registrate(email, login, password) {
+        return host.post('user/registration', { email, login, password }).then((response) => {
+            const { token } = response.data;
             localStorage.setItem('token', token)
-            return { errorCode, user: jwt_decode(token) }
+            return { user: jwt_decode(token) }
         })
     },
 
-    login(email, password) {
-        return host.post('user/login', { email, password }).then((response) => {
-            const { errorCode, token } = response.data;
+    login(login, password) {
+        return host.post('user/login', { login, password }).then((response) => {
+            const { token } = response.data;
             localStorage.setItem('token', token)
-            return { errorCode, user: jwt_decode(token) }
+            return { user: jwt_decode(token) }
         })
     },
 
@@ -49,20 +48,20 @@ export const taskAPI = {
     },
 
     updateTask(taskId, description, startDate, endDate, statusId, priorityId) {
-        return host.put(`task/${taskId}`, {taskId, description, startDate, endDate, statusId, priorityId }).then((response) => {
+        return host.put(`task/${taskId}`, { taskId, description, startDate, endDate, statusId, priorityId }).then((response) => {
             return response.data
         })
     },
 
-    getTasks(userId) {
-        return host.get(`task/${userId}`).then((response) => {
+    getTasks(userId, query) {
+        return host.get(`task/${userId}?${query}`).then((response) => {
             return response.data
         })
     },
 
     deleteTask(taskId) {
         return host.delete(`task/${taskId}`).then((response) => {
-            return response.data
+            return response
         })
     },
 

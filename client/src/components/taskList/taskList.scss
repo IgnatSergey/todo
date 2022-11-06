@@ -1,0 +1,13 @@
+.task-list {
+  padding: 10px;
+  padding-right: 0;
+  list-style: none;
+  margin: 0;
+}
+
+.task-list__message-not-tasks {
+  margin: 0;
+  margin-bottom: 20px;
+  @include font-astra(25px, 22px, 400);
+}
+
